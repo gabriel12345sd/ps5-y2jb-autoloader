@@ -86,7 +86,7 @@ rm -f "$DEST_DIR"/kexp-*.bin
 rm -f "$DEST_DIR"/elfldr-ps5-*.elf
 rm -f "$DEST_DIR"/kexp_v*.bin
 rm -f "$DEST_DIR"/elfldr*.elf
-rm -f "$DEST_DIR"/ps5-unified-autoloader*.elf
+
 
 ELFLDR_FILE="elfldr-ps5-${ELFLDR_VER}.elf"
 KEXP_FILE="kexp-${KEXP_VER}.bin"
