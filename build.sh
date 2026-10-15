@@ -46,20 +46,6 @@ build_source_deps() {
     KEXP_VER=$(git -C third_party/ps5-kexp describe --tags --always)
     cp third_party/ps5-kexp/build/kexp.bin "$DEST_DIR/kexp-${KEXP_VER}.bin"
 
-    echo "Building ps5-unified-autoloader..."
-    if [ ! -e "third_party/ps5-unified-autoloader/.git" ]; then
-        echo "Error: ps5-unified-autoloader submodule is not initialized. Please run: git submodule update --init --recursive" >&2
-        exit 1
-    fi
-    (cd third_party/ps5-unified-autoloader && ./build_release.sh -b)
-    AUTOLOADER_VER=$(git -C third_party/ps5-unified-autoloader describe --tags --always)
-    AUTOLOADER_ELF=$(ls third_party/ps5-unified-autoloader/autoloader_v*.elf 2>/dev/null | head -n 1)
-    if [ -z "$AUTOLOADER_ELF" ]; then
-        echo "Error: ps5-unified-autoloader build succeeded but no output ELF found." >&2
-        exit 1
-    fi
-    rm -f "$DEST_DIR"/ps5-unified-autoloader*.elf
-    cp "$AUTOLOADER_ELF" "$DEST_DIR/ps5-unified-autoloader.elf"
 
     if [ "${GITHUB_OUTPUT:-}" ]; then
         echo "elfldr_ver=${ELFLDR_VER}" >> "$GITHUB_OUTPUT"
