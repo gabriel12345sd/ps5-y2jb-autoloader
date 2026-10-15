@@ -99,9 +99,6 @@ curl -L -o "$DEST_DIR/$ELFLDR_FILE" "$ELFLDR_URL"
 echo "Downloading $KEXP_URL to $DEST_DIR/$KEXP_FILE..."
 curl -L -o "$DEST_DIR/$KEXP_FILE" "$KEXP_URL"
 
-echo "Downloading $AUTOLOADER_URL to $DEST_DIR/$AUTOLOADER_FILE..."
-curl -L -o "$DEST_DIR/$AUTOLOADER_FILE" "$AUTOLOADER_URL"
-
 echo "Successfully downloaded all dependencies!"
 echo "Dependency versions:"
 echo "  - elfldr: $ELFLDR_VER"
